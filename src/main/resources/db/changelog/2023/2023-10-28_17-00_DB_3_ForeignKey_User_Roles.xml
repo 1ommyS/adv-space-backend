@@ -1,0 +1,13 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="addForeignKeyConstraint-users-role" author="1ommy">
+        <addForeignKeyConstraint baseTableName="users"
+                                 baseColumnNames="role_id"
+                                 constraintName="fk_users_role"
+                                 referencedTableName="role"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

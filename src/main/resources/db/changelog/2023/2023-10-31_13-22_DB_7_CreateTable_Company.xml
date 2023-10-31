@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="1ommy">
+        <createTable tableName="companies">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iconUrl" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="delegate_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="1ommy">
+        <createIndex indexName="idx_companies_id" tableName="companies">
+            <column name="id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="3" author="1ommy">
+        <addForeignKeyConstraint constraintName="fk_companies_delegate"
+                                 baseTableName="companies" baseColumnNames="delegate_id"
+                                 referencedTableName="users" referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

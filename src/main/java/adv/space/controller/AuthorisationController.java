@@ -3,7 +3,7 @@ package adv.space.controller;
 import adv.space.dto.AuthDTO;
 import adv.space.dto.AuthenticationResponseDTO;
 import adv.space.dto.SignUpDTO;
-import adv.space.service.UserService;
+import adv.space.service.AuthorisationService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/v1/user")
-public class UserController {
+public class AuthorisationController {
 
-    private final UserService userService;
+    private final AuthorisationService authorisationService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public AuthorisationController(AuthorisationService authorisationService) {
+        this.authorisationService = authorisationService;
     }
 
     @PostMapping("signUp")
     public AuthenticationResponseDTO signUp(@RequestBody SignUpDTO dto) {
-        return userService.createUser(dto);
+        return authorisationService.createUser(dto);
     }
 
     @PostMapping("auth")
     public AuthenticationResponseDTO auth(@RequestBody AuthDTO dto) {
-        return userService.authoriseUser(dto);
+        return authorisationService.authoriseUser(dto);
     }
 }

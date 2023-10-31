@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5444/adv-space
-    username: postgres
-    password: 123
+    url: jdbc:postgresql://localhost:5432/adv-space
+    username: myuser
+    password: pass
   liquibase:
     change-log: classpath:db/changelog/changelog.xml
 

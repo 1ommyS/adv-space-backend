@@ -13,7 +13,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Role extends BaseEntity<Long> {
+public class RoleEntity extends BaseEntity<Long> {
 
     @Column(name = "title", nullable = false, unique = true)
     private String title;

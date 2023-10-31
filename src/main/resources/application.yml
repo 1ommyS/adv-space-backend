@@ -1,1 +1,18 @@
+server:
+  port: 8090
 
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5444/adv-space
+    username: postgres
+    password: 123
+  liquibase:
+    change-log: classpath:db/changelog/changelog.xml
+
+application:
+  security:
+    jwt:
+      secret-key: 816C39EA396BF12E3F6259425B16C1DA9D12D85D4E9C7C6A25912CB212
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days

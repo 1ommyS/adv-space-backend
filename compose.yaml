@@ -1,9 +1,10 @@
 services:
-  postgres:
+  db-adv-space:
     image: 'postgres:latest'
-    environment:
-      - 'POSTGRES_DB=adv-space'
-      - 'POSTGRES_PASSWORD=pass'
-      - 'POSTGRES_USER=myuser'
+    restart: always
     ports:
-      - '5432'
+      - 5432:5432
+    environment:
+      POSTGRES_DB: adv-space
+      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: myuser

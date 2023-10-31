@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="7" author="1ommy">
+        <createTable tableName="advertisements">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="area_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="8" author="1ommy">
+        <createTable tableName="advertisement_tag">
+            <column name="advertisement_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tag_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="9" author="1ommy">
+        <addForeignKeyConstraint constraintName="fk_advertisements_company"
+                                 baseTableName="advertisements" baseColumnNames="company_id"
+                                 referencedTableName="company" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_advertisements_category"
+                                 baseTableName="advertisements" baseColumnNames="category_id"
+                                 referencedTableName="category" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_advertisements_area"
+                                 baseTableName="advertisements" baseColumnNames="area_id"
+                                 referencedTableName="area" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_advertisements_owner"
+                                 baseTableName="advertisements" baseColumnNames="owner_id"
+                                 referencedTableName="user" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_advertisement_tag_advertisement"
+                                 baseTableName="advertisement_tag" baseColumnNames="advertisement_id"
+                                 referencedTableName="advertisements" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_advertisement_tag_tag"
+                                 baseTableName="advertisement_tag" baseColumnNames="tag_id"
+                                 referencedTableName="tag" referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="10" author="1ommy">
+        <createIndex indexName="idx_advertisements_id" tableName="advertisements">
+            <column name="id"/>
+        </createIndex>
+        <createIndex indexName="idx_advertisement_tag_advertisement_id" tableName="advertisement_tag">
+            <column name="advertisement_id"/>
+        </createIndex>
+        <createIndex indexName="idx_advertisement_tag_tag_id" tableName="advertisement_tag">
+            <column name="tag_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

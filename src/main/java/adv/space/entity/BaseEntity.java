@@ -5,7 +5,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.ToString;
-import org.springframework.data.util.ProxyUtils;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -26,6 +25,10 @@ public abstract class BaseEntity<T extends Serializable> {
         BaseEntity<?> that = (BaseEntity<?>) o;
 
         return Objects.equals(id, that.id);
+    }
+
+    public T getId() {
+        return id;
     }
 
 }

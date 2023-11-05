@@ -1,6 +1,16 @@
 server:
   port: 8090
 
+cloud:
+  aws:
+    credentials:
+      access-key: newAccessKey
+      secret-key: newSecretKey
+    region:
+      static: us-west-2
+    stack:
+      auto: false
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/adv-space
@@ -16,3 +26,5 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
+  bucket:
+    name: images

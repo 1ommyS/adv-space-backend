@@ -1,9 +1,9 @@
 package adv.space.service;
 
 import adv.space.configuration.JwtService;
-import adv.space.dto.AuthDTO;
-import adv.space.dto.AuthenticationResponseDTO;
-import adv.space.dto.SignUpDTO;
+import adv.space.dto.AuthDto;
+import adv.space.dto.AuthenticationResponseDto;
+import adv.space.dto.SignUpDto;
 import adv.space.entity.UserEntity;
 import adv.space.exception.UserAlreadyExistsException;
 import adv.space.repository.RoleRepository;
@@ -29,7 +29,7 @@ public class AuthorisationService {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtToken;
 
-    public AuthenticationResponseDTO createUser(SignUpDTO dto) {
+    public AuthenticationResponseDto createUser(SignUpDto dto) {
         var role = roleRepository.findByTitle(dto.roleTitle()).orElseThrow(() -> {
             log.error("UserService.createUser | Роль {} не найдена", dto.roleTitle());
             return new EntityNotFoundException();
@@ -56,10 +56,10 @@ public class AuthorisationService {
         String accessToken = jwtToken.generateToken(saved);
         String refreshToken = jwtToken.generateRefreshToken(saved);
 
-        return new AuthenticationResponseDTO(accessToken, refreshToken);
+        return new AuthenticationResponseDto(accessToken, refreshToken);
     }
 
-    public AuthenticationResponseDTO authoriseUser(AuthDTO dto) {
+    public AuthenticationResponseDto authoriseUser(AuthDto dto) {
         var user = repository.findByLogin(dto.login()).orElseThrow(() -> {
             log.error("UserService.authoriseUser | Пользователь с логином {} не найден", dto.login());
             return new EntityNotFoundException("Такой пользователь не найден");
@@ -75,7 +75,7 @@ public class AuthorisationService {
         if (authenticated.isAuthenticated()) {
             String accessToken = jwtToken.generateToken(user);
             String refreshToken = jwtToken.generateRefreshToken(user);
-            return new AuthenticationResponseDTO(accessToken, refreshToken);
+            return new AuthenticationResponseDto(accessToken, refreshToken);
         }
 
         return null;

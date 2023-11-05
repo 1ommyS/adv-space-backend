@@ -5,13 +5,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Builder
-public record SignUpDTO(
-
+public record SignUpDto(
         @NotBlank(message = "Login is mandatory")
         @Size(min = 3, max = 50, message = "Login should be between 3 and 50 characters")
         String login,

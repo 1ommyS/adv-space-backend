@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.nio.file.FileSystemException;
 import java.util.Objects;
 
 /**
@@ -62,13 +63,12 @@ public class ExceptionAdvice {
 
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler({Exception.class})
+    @ExceptionHandler({Exception.class, FileSystemException.class})
     @ResponseBody
     public ApiError handleException(Exception exception) {
         log.error("exception caught by advice {} ", exception.getMessage());
         return wrapSystemException(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
 
 
     private ApiError wrapBusinessException(Throwable throwable, HttpStatus status) {

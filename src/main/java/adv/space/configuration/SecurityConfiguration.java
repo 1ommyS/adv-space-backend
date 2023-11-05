@@ -18,18 +18,15 @@ public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
 
     private static final String[] WHITE_LIST = {
-            "/api/v1/auth/**",
-            "/v2/api-docs",
-            "/v3/api-docs",
-            "/v3/api-docs/**",
+            "/api/v1/authorisation",
             "/swagger-resources",
             "/swagger-resources/**",
-            "/configuration/ui",
-            "/configuration/security",
             "/swagger-ui/**",
-            "/webjars/**",
             "/swagger-ui.html",
-            "/api/auth/**"
+    };
+
+    private static final String[] AUTHORISED_LIST = {
+            "/api/v1/**",
     };
 
     public SecurityConfiguration(JwtAuthenticationFilter jwtAuthFilter, AuthenticationProvider authenticationProvider) {
@@ -42,6 +39,7 @@ public class SecurityConfiguration {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests(r -> {
+                    r.requestMatchers(AUTHORISED_LIST).authenticated();
                     r.requestMatchers(WHITE_LIST).permitAll();
                 })
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

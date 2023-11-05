@@ -63,5 +63,6 @@ public class CompanyService {
 
     public List<CompanyDto> findAll() {
         var companies = repository.findAll();
+        return mapper.toDtoList(companies);
     }
 }

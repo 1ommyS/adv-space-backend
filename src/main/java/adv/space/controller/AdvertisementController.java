@@ -1,6 +1,7 @@
 package adv.space.controller;
 
 import adv.space.dto.AdvertisementDto;
+import adv.space.dto.UserDto;
 import adv.space.entity.AdvertisementEntity;
 import adv.space.service.AdvertisementService;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +28,15 @@ public class AdvertisementController {
     @PostMapping
     public void create(@RequestBody AdvertisementDto dto) {
         service.create(dto);
+    }
+
+    @GetMapping("/{id}")
+    public AdvertisementDto findById(@RequestParam Long id){
+        return service.findById(id);
+    }
+
+    @GetMapping("/user")
+    public List<AdvertisementDto> findByOwner(@RequestBody UserDto dto){
+        return service.findByOwner(dto);
     }
 }

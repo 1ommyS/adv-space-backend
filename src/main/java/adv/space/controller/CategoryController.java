@@ -1,7 +1,7 @@
 package adv.space.controller;
 
-import adv.space.dto.CategoryDto;
-import adv.space.dto.CreateCategoryDto;
+import adv.space.dto.responses.CategoryDto;
+import adv.space.dto.requests.CreateCategoryDto;
 import adv.space.entity.CategoryEntity;
 import adv.space.service.CategoryService;
 import lombok.RequiredArgsConstructor;

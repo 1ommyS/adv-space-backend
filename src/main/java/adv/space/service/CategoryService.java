@@ -1,7 +1,7 @@
 package adv.space.service;
 
-import adv.space.dto.CategoryDto;
-import adv.space.dto.CreateCategoryDto;
+import adv.space.dto.responses.CategoryDto;
+import adv.space.dto.requests.CreateCategoryDto;
 import adv.space.entity.CategoryEntity;
 import adv.space.mapper.CategoryEntityMapper;
 import adv.space.repository.CategoryRepository;

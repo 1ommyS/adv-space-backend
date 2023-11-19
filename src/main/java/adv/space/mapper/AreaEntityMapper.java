@@ -1,6 +1,6 @@
 package adv.space.mapper;
 
-import adv.space.dto.AreaEntityDto;
+import adv.space.dto.responses.AreaEntityDto;
 import adv.space.entity.AreaEntity;
 import org.mapstruct.*;
 

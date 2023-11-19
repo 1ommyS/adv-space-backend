@@ -1,4 +1,4 @@
-package adv.space.dto;
+package adv.space.dto.responses;
 
 import adv.space.entity.AdvertisementEntity;
 import adv.space.entity.TagEntity;

@@ -1,4 +1,4 @@
-package adv.space.dto;
+package adv.space.dto.requests;
 
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,7 +1,7 @@
 package adv.space.controller;
 
-import adv.space.dto.CompanyDto;
-import adv.space.dto.CreateCompanyDto;
+import adv.space.dto.responses.CompanyDto;
+import adv.space.dto.requests.CreateCompanyDto;
 import adv.space.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,9 @@
 package adv.space.service;
 
 import adv.space.configuration.JwtService;
-import adv.space.dto.AuthDto;
-import adv.space.dto.AuthenticationResponseDto;
-import adv.space.dto.SignUpDto;
+import adv.space.dto.responses.AuthDto;
+import adv.space.dto.responses.AuthenticationResponseDto;
+import adv.space.dto.requests.SignUpDto;
 import adv.space.entity.UserEntity;
 import adv.space.exception.UserAlreadyExistsException;
 import adv.space.repository.RoleRepository;
@@ -11,17 +11,11 @@ import adv.space.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.lang.module.Configuration;
 
 @Service
 @RequiredArgsConstructor

@@ -1,8 +1,8 @@
 package adv.space.controller;
 
-import adv.space.dto.AuthDto;
-import adv.space.dto.AuthenticationResponseDto;
-import adv.space.dto.SignUpDto;
+import adv.space.dto.responses.AuthDto;
+import adv.space.dto.responses.AuthenticationResponseDto;
+import adv.space.dto.requests.SignUpDto;
 import adv.space.service.AuthorisationService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

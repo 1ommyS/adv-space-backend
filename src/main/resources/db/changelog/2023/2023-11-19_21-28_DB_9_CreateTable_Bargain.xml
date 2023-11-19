@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="20" author="1ommy">
+        <createTable tableName="bargain">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="advertisement_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="advertiser_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mongoId" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deleted" type="boolean" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="21" author="1ommy">
+        <addForeignKeyConstraint constraintName="fk_bargain_advertisement"
+                                 baseTableName="bargain"
+                                 baseColumnNames="advertisement_id"
+                                 referencedTableName="advertisement"
+                                 referencedColumnNames="id" />
+        <addForeignKeyConstraint constraintName="fk_bargain_advertiser"
+                                 baseTableName="bargain"
+                                 baseColumnNames="advertiser_id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id" />
+        <addForeignKeyConstraint constraintName="fk_bargain_customer"
+                                 baseTableName="bargain"
+                                 baseColumnNames="customer_id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id" />
+    </changeSet>
+
+</databaseChangeLog>

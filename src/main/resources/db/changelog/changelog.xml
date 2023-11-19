@@ -4,4 +4,11 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="2023/2023-10-28_16-07_DB_1_CreateTable_Users.xml" relativeToChangelogFile="true"/>
     <include file="2023/2023-10-28_16-08_DB_2_CreateTable_Roles.xml" relativeToChangelogFile="true"/>
+    <include file="2023/2023-10-28_17-00_DB_3_ForeignKey_User_Roles.xml" relativeToChangelogFile="true"/>
+    <include file="2023/2023-10-31_13-20_DB_4_CreateTable_Advertisement.xml" relativeToChangelogFile="true"/>
+    <include file="2023/2023-10-31_13-21_DB_5_CreateTable_Area.xml" relativeToChangelogFile="true"/>
+    <include file="2023/2023-10-31_13-21_DB_6_CreateTable_Category.xml" relativeToChangelogFile="true"/>
+    <include file="2023/2023-10-31_13-22_DB_7_CreateTable_Company.xml" relativeToChangelogFile="true"/>
+    <include file="2023/2023-10-31_13-23_DB_8_CreateTable_Tag.xml" relativeToChangelogFile="true"/>
+    <include file="2023/2023-11-19_21-28_DB_9_CreateTable_Bargain.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

@@ -1,7 +1,7 @@
 package adv.space.service;
 
-import adv.space.dto.CompanyDto;
-import adv.space.dto.CreateCompanyDto;
+import adv.space.dto.responses.CompanyDto;
+import adv.space.dto.requests.CreateCompanyDto;
 import adv.space.entity.CompanyEntity;
 import adv.space.mapper.CompanyMapper;
 import adv.space.repository.CompanyRepository;

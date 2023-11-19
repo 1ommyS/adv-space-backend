@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet id="1" author="1ommy">
+    <changeSet id="15" author="1ommy">
         <createTable tableName="companies">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -25,13 +25,13 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="2" author="1ommy">
+    <changeSet id="16" author="1ommy">
         <createIndex indexName="idx_companies_id" tableName="companies">
             <column name="id"/>
         </createIndex>
     </changeSet>
 
-    <changeSet id="3" author="1ommy">
+    <changeSet id="17" author="1ommy">
         <addForeignKeyConstraint constraintName="fk_companies_delegate"
                                  baseTableName="companies" baseColumnNames="delegate_id"
                                  referencedTableName="users" referencedColumnNames="id"/>

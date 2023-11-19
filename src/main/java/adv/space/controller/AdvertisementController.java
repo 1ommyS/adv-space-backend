@@ -1,8 +1,7 @@
 package adv.space.controller;
 
-import adv.space.dto.AdvertisementDto;
-import adv.space.dto.UserDto;
-import adv.space.entity.AdvertisementEntity;
+import adv.space.dto.responses.AdvertisementDto;
+import adv.space.dto.responses.UserDto;
 import adv.space.service.AdvertisementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

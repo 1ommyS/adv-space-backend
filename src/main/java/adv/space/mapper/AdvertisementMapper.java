@@ -1,10 +1,7 @@
 package adv.space.mapper;
 
-import adv.space.dto.AdvertisementDto;
-import adv.space.dto.AreaEntityDto;
+import adv.space.dto.responses.AdvertisementDto;
 import adv.space.entity.AdvertisementEntity;
-import adv.space.entity.AreaEntity;
-import org.apache.catalina.User;
 import org.mapstruct.*;
 
 import java.util.List;
